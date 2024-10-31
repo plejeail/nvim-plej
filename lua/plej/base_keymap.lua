@@ -16,3 +16,22 @@ end
 -- reload vim configuration
 vim.api.nvim_set_keymap("n", "<leader>rv", "<cmd>lua reload_init()<CR>", { desc="", noremap=true })
 -- }}}
+
+-- Sort lines alphabetically in visual mode {{{
+function visual_sort_lines()
+  -- Get the start and end positions of the visual selection
+  local start_line, _, end_line, _ = unpack(vim.fn.getpos("'<"))
+  -- Extract lines in the selection range
+  local lines = vim.fn.getline(start_line, end_line)
+
+  -- Sort the lines alphabetically
+  table.sort(lines)
+
+  -- Replace the selected lines with the sorted lines
+  vim.fn.setline(start_line, lines)
+end
+
+-- sort selected lines
+vim.api.nvim_set_keymap("v", "sl", "<cmd>lua visual_sort_lines()<CR>", {noremap=true})
+-- }}}
+
