@@ -77,7 +77,7 @@ local configs = {
 -- }}}
 
 -- load package {{{
-local function pull(repo, opts)
+local function register(repo, opts)
   local plug_name = function(repo)
     return repo:match("^[%w-]+/([%w-_.]+)$")
   end
@@ -127,7 +127,7 @@ end
 return {
   install = install,
   update  = update,
-  pull    = pull,
+  pull    = register,
   begin   = vim.fn['plug#begin'],
   ends    = plug_end,
 }
