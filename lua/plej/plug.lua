@@ -125,9 +125,9 @@ end
 
 -- return plug object
 return {
-  install = install,
-  update  = update,
-  pull    = register,
-  begin   = vim.fn['plug#begin'],
-  ends    = plug_end,
+  install  = install,
+  update   = update,
+  register = register,
+  begin    = vim.fn['plug#begin'],
+  ends     = plug_end,
 }

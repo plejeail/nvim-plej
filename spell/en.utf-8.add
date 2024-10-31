@@ -4,3 +4,4 @@ config
 NeoVim
 lua
 keymap
+init
