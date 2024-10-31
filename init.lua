@@ -1,6 +1,8 @@
 -- init.lua
 -- PLeJ NeoVim configuration
 
+require('plej.base_config')
+
 plug = require('plej.plug'); plug.install()
 
 plug.begin()
