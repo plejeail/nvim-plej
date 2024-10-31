@@ -1,0 +1,2 @@
+-- init.lua
+-- PLeJ NeoVim configuration
