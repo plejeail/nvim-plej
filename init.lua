@@ -2,6 +2,7 @@
 -- PLeJ NeoVim configuration
 
 require('plej.base_config')
+require('plej.base_keymap')
 
 plug = require('plej.plug'); plug.install()
 
