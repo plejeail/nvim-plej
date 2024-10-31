@@ -35,6 +35,22 @@ o.softtabstop = 2
 o.textwidth = 120
 -- enable virtual edits
 o.virtualedit = 'block'
+
+local function trim_trailing_whitespaces()
+  local total_lines = vim.api.nvim_buf_line_count(0)
+  for i = 1, total_lines do
+    local line = vim.api.nvim_buf_get_lines(0, i - 1, i, false)[1]
+    local trimmed_line = line:match("^(.-)[%s\t]*$")
+    if trimmed_line ~= line then
+      vim.api.nvim_buf_set_lines(0, i - 1, i, false, { trimmed_line })
+    end
+  end
+end
+vim.api.nvim_create_autocmd("BufWritePre", {
+pattern = "*.lua,*.odin",
+callback = trim_trailing_whitespaces
+})
+
 -- }}}
 -- Interface {{{
 -- set dark background
