@@ -6,7 +6,7 @@ local o = vim.opt
 -- Edition {{{
 -- allow reverse insert mode (Ctrl+i)
 o.allowrevins = true
--- behaviour on amibguous characters: use double width
+-- behaviour on ambiguous characters: use double width
 o.ambiwidth = 'double'
 -- keep working directory when opening file
 o.autochdir = true
@@ -18,7 +18,7 @@ o.autoread = false
 o.copyindent = false
 -- replace tabs with spaces
 o.expandtab = true
--- use unix end of line style
+-- use Unix end of line style
 o.fileformat = 'unix'
 o.fileformats = 'unix,dos'
 -- add end of line at the end of file
@@ -35,7 +35,7 @@ o.softtabstop = 2
 o.textwidth = 120
 -- enable virtual edits
 o.virtualedit = 'block'
-
+-- trim white spaces on save
 local function trim_trailing_whitespaces()
   local total_lines = vim.api.nvim_buf_line_count(0)
   for i = 1, total_lines do
@@ -50,7 +50,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 pattern = "*.lua,*.odin",
 callback = trim_trailing_whitespaces
 })
-
 -- }}}
 -- Interface {{{
 -- set dark background
@@ -70,7 +69,7 @@ vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
     callback = function() vim.wo.cursorline = false; end,
 })
 -- prefer English for help files
-o.helplang=en,fr
+o.helplang = 'en,fr'
 -- always show the status line
 o.laststatus = 2
 -- show trailing tabs and spaces
