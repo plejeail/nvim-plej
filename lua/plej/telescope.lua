@@ -45,4 +45,5 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep,  { desc = 'Find token [Tele
 vim.keymap.set('n', '<leader>fq', builtin.quickfix,   { desc = 'Quickfixes menu [Telescope]' })
 vim.keymap.set('n', '<leader>fs', builtin.spell_suggest, { desc = 'Spell suggestions [Telescope]' })
 vim.keymap.set('n', '<leader>ft', builtin.tags,       { desc = 'Search rags [Telescope]' })
+vim.keymap.set('n', '<leader>dl', builtin.diagnostics,{ desc = 'Search rags [Telescope]' })
 

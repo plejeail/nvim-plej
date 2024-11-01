@@ -19,6 +19,7 @@ plug.ends()
 plug.update( 7 )
 -- }}}
 
+require('plej.lsp')
 require('plej.nvimtree')
 require('plej.treesitter')
 require('plej.telescope')

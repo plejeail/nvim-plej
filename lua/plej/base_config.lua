@@ -32,10 +32,10 @@ o.fixendofline = true
 o.fsync = true
 -- number of spaces to use for each step of indent
 o.shiftwidth = 2
--- smart auto indent
-o.smartindent = true
 -- number of spaces that count for a tab
 o.softtabstop = 2
+-- smart auto indent
+o.smartindent = true
 -- maximum text width before breaking
 o.textwidth = 120
 -- enable virtual edits
@@ -52,7 +52,7 @@ local function trim_trailing_whitespaces()
   end
 end
 vim.api.nvim_create_autocmd("BufWritePre", {
-pattern = "*.lua,*.odin",
+pattern = "*.lua,*.odin,*.c,*.h,*.cpp,*.zig,*.py",
 callback = trim_trailing_whitespaces
 })
 -- }}}
