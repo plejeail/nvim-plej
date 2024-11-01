@@ -6,8 +6,8 @@ local o = vim.opt
 -- Edition {{{
 -- allow reverse insert mode (Ctrl+i)
 o.allowrevins = true
--- behaviour on ambiguous characters: use double width
-o.ambiwidth = 'double'
+-- behaviour on ambiguous characters: use single width
+o.ambiwidth = 'single'
 -- keep working directory when opening file
 o.autochdir = true
 -- indent new lines automatically
@@ -128,7 +128,7 @@ o.tagcase = 'followscs'
 -- }}}
 -- Folding {{{
 -- close folds when leaving them
-o.foldclose = 'all'
+-- o.foldclose = 'all'
 -- fold column size
 o.foldcolumn = '1'
 -- enable folds
