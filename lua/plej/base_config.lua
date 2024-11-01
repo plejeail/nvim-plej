@@ -3,13 +3,18 @@
 
 local o = vim.opt
 
+-- Disable builtin features {{{
+-- disable Netrw (file explorer)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- }}}
 -- Edition {{{
 -- allow reverse insert mode (Ctrl+i)
 o.allowrevins = true
 -- behaviour on ambiguous characters: use single width
 o.ambiwidth = 'single'
 -- keep working directory when opening file
-o.autochdir = true
+o.autochdir = false
 -- indent new lines automatically
 o.autoindent = true
 -- do not auto reload files modified externaly
