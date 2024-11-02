@@ -15,19 +15,22 @@ local function reload_init()
   dofile(vim.fn.stdpath('config') .. '/init.lua')
   print('configuration reloaded')
 end
--- reload vim configuration
+
 vim.keymap.set('n', '<leader>rv', reload_init, { desc='reload vim configuration', noremap=true })
 -- }}}
 
 -- Sort lines alphabetically in visual mode {{{
 local function visual_sort_lines()
-  local start = vim.fn.line("'<")
-  local ends = vim.fn.line("'>")
-  local lines = vim.api.nvim_buf_get_lines(0, start - 1, ends, false)
+  local first_row = vim.fn.line('v')
+  local last_row  = vim.fn.line('.')
+  if first_row > last_row then
+    first_row, last_row = last_row, first_row
+  end
+  local lines = vim.api.nvim_buf_get_lines(0, first_row - 1, last_row, false)
   table.sort(lines)
-  vim.api.nvim_buf_set_lines(0, start - 1, ends, false, lines)
+  vim.api.nvim_buf_set_lines(0, first_row - 1, last_row, false, lines)
 end
--- sort selected lines
+
 vim.keymap.set('v', '<leader>sl', visual_sort_lines, { desc='sort selected lines', noremap=true })
 -- }}}
 
