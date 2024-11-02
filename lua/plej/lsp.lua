@@ -15,11 +15,13 @@ end
 local function attach_odin(ev)
   setup_lsp_keymap(ev)
   local proj_root = vim.fs.root(ev.buf, { 'ols.json', '.vimproj' })
-  require("nvim-tree.api").tree.change_root(proj_root)
+  require('nvim-tree.api').tree.change_root(proj_root)
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
   vim.lsp.start({
     name = 'Odin Language Server',
     cmd = { 'ols' },
     root_dir = proj_root,
+    capabilities = capabilities,
   })
 end
 
