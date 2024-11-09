@@ -1,10 +1,11 @@
 -- completion.lua
 -- setup the completion plugin hrsh7th/nvim-cmp
 cmp = require('cmp')
+snip = require('luasnip')
 cmp.setup({
   snippet = {
     expand = function(args)
-      require('snippy').expand_snippet(args.body)
+--      require('snippy').expand_snippet(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({

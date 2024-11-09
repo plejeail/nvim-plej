@@ -17,7 +17,7 @@ o.ambiwidth = 'single'
 o.autochdir = false
 -- indent new lines automatically
 o.autoindent = true
--- do not auto reload files modified externaly
+-- do not auto reload files modified externally
 o.autoread = false
 -- do not keep lines indent on copy
 o.copyindent = false
@@ -28,7 +28,7 @@ o.fileformat = 'unix'
 o.fileformats = 'unix,dos'
 -- add end of line at the end of file
 o.fixendofline = true
--- do not force the os to write the file on save
+-- do not force the OS to write the file on save
 o.fsync = true
 -- number of spaces to use for each step of indent
 o.shiftwidth = 2
@@ -52,7 +52,7 @@ local function trim_trailing_whitespaces()
   end
 end
 vim.api.nvim_create_autocmd("BufWritePre", {
-pattern = "*.lua,*.odin,*.c,*.h,*.cpp,*.zig,*.py",
+pattern = "*.lua,*.odin,*.c,*.h,*.cpp,*.zig,*.py,*.ps1",
 callback = trim_trailing_whitespaces
 })
 -- }}}
@@ -84,7 +84,7 @@ o.listchars = 'tab:>-,lead:.,trail:-'
 o.more = true
 -- print the line numbers
 o.number = true
--- enable pseudo transparency for the popup menu
+-- enable pseudo transparency for the pop-up menu
 o.pumblend = 10
 -- maximum redraw time allowed
 o.redrawtime = 1000
@@ -93,7 +93,7 @@ o.scrollback = 10000
 -- minimum number of lines to surround the cursor
 o.scrolloff = 7
 -- token to show on the start of wrapped lines
-o.showbreak = '+>+ '
+o.showbreak = '>>> '
 -- show (partially) entered commands in status line
 o.showcmdloc = 'statusline'
 -- show matching bracket
@@ -118,7 +118,7 @@ o.undolevels = 1000
 o.completeopt = 'menu,menuone,popup,noinsert'
 -- ignore case in search patterns
 o.ignorecase = true
--- show offscreen substitutions in a preview window
+-- show off-screen substitutions in a preview window
 o.inccommand = 'split'
 -- incremental search
 o.incsearch = true
@@ -128,7 +128,7 @@ o.pumheight = 20
 o.showfulltag = true
 -- when searching, ignore case if all lowercase
 o.smartcase = true
--- use smartcase for tag search
+-- use smart case for tag search
 o.tagcase = 'followscs'
 -- }}}
 -- Folding {{{
