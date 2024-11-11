@@ -30,7 +30,6 @@ plug.update( 7 )
 -- }}}
 
 require('plej.project')
-require('plej.plugin_lsp')
 require('plej.plugin_completion')
 require('plej.plugin_nvimtree')
 require('plej.plugin_telescope')
