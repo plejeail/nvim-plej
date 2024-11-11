@@ -11,8 +11,8 @@ function setup(ev)
   local project = parse_project_file(path .. '/.vimproj')
   if not project.done then
     setup_project_keymap(ev)
-    -- vim.api.nvim_buf_set_option(ev.buf, 'foldmethod', 'expr')
-    -- vim.api.nvim_buf_set_option(ev.buf, 'foldexpr', 'nvim_treesitter#foldexpr()')
+    vim.api.nvim_buf_set_option(ev.buf, 'foldmethod', 'expr')
+    vim.api.nvim_buf_set_option(ev.buf, 'foldexpr', 'nvim_treesitter#foldexpr()')
     project.cmd_dbg = string.format('odin build %s/%s --out:%s/build/debug/%s %s',
         path, project.source_folder,
         path, project.binary,

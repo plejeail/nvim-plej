@@ -1,23 +1,19 @@
--- plej.treesitter.lua
--- nvim-treesitter configuration
-
-local treesitter = require('nvim-treesitter.configs')
-treesitter.prefer_git = false
-treesitter.setup({
-  ensure_installed = { 'c', 'lua', 'odin' },
-  highlight = {
-    enable = true,
-  },
-  auto_install = true,
-})
-
-local parsers = require('nvim-treesitter.parsers').get_parser_configs()
-parsers.odin = {
-  install_info = {
-    url = vim.fn.stdpath('config') .. '/extern/tree-sitter-odin',
-    branch = 'main',
-    files = {'src/parser.c'}
-  },
-  filetype = 'odin',
+-- plej.plugin_treesitter.mlua
+return {
+  setup = function(parser_name)
+    require('nvim-treesitter.configs').setup {
+      ensure_installed = { parser_name },
+      sync_install = false,
+      auto_install = false,
+      highlight = {
+        disable = function(lang, buf)
+          local max_filesize = 500 * 1024
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+            return true
+          end
+        end,
+      }
+    }
+  end
 }
-
